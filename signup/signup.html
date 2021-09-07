@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup">
+        <h2 class="signup-head">Signup</h2>
+        <div class="signup-body">
+            <form action="/user/signup" method="post">
+                <label for="name" class="signup-label">Name</label>
+                <input type="text" name="name" class="signup-input signup-name">
+                <label for="email" class="signup-label">Email</label>
+                <input type="email" name="email" class="signup-input signup-email">
+                <label for="password" class="signup-label">Password</label>
+                <input type="password" name="password" class="signup-input signup-password">
+                <label for="phone" class="signup-label">Phone</label>
+                <input type="tel" name="phone" class="signup-input signup-phone">
+                <button type="submit" id="signup-btn">Signup &#10162;</button>
+            </form>  
+        </div>
+    </div>  
+</body>
+</html>
