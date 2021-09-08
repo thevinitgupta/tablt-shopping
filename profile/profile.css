@@ -1,0 +1,14 @@
+.profile {
+    width : 100%;
+    min-height: 700px;
+}
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border : none;
+    border-radius : 50%;
+}
+.profile-image > img {
+    width: 100%;
+    height: 100%;
+}
