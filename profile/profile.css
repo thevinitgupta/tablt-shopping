@@ -52,3 +52,8 @@
     cursor: pointer;
     transform: scale(1.2);
 }
+.invalid-email{
+    width: 100%;
+    text-align: center;
+    color: rgb(185, 51, 27);
+}
