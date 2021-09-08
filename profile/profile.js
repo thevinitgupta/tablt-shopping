@@ -1,11 +1,15 @@
 window.addEventListener("load",getProfileData("thevinitgupta@gmail.com"));
 
 let userId = "";
+const logo = document.querySelector(".logo");
 const userName = document.querySelector(".profile-name");
 const profileData = document.querySelector(".profile-data");
 const profileDetails = document.querySelector(".profile-details");
 const viewOrders = document.querySelector(".view-orders");
 viewOrders.addEventListener("click",fetchOrders)
+logo.addEventListener("click",()=>{
+    window.location.href = "/";
+})
 
 async function getProfileData(email){
     const userBlob = await fetch(`http://localhost:3000/user/${email}`);
