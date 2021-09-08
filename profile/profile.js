@@ -1,4 +1,4 @@
-window.addEventListener("load",getProfileData("thevinitgupta@gmail.co"));
+window.addEventListener("load",getProfileData("thevinitgupta@gmail.com"));
 
 let userId = "";
 const userName = document.querySelector(".profile-name");
@@ -24,11 +24,12 @@ async function getProfileData(email){
 async function setUserData(user){
     userName.innerText = user.name;
     profileData.innerHTML = `Email : ${user.email}</br>Phone : ${user.phone}`;
+    userId = user._id;
 }
 
 async function fetchOrders(){
     console.log(userId)
-    const ordersBlob = await fetch(`http://localhost:3000/order/${user._id}`);
+    const ordersBlob = await fetch(`http://localhost:3000/order/${userId}`);
     const ordersList = await ordersBlob.json();
     console.log(ordersList);
 }
