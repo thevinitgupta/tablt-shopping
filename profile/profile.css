@@ -34,3 +34,21 @@
 .profile-name:hover{
     transform: scale(1.15);
 }
+.profile-orders {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.view-orders {
+    margin-top: 35px;
+    background: none;
+    color : #069196;
+    font-size: 1.2rem;
+    border: none;
+    transition: all 350ms ease-in-out;
+}
+.view-orders:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
