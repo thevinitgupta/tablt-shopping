@@ -6,9 +6,28 @@ logo.addEventListener("click",()=>{
 })
 
 async function fetchProducts(){
-    const productsBlob = await fetch(`http://localhost:3000/product/`);
-    const productsList = await productsBlob.json();
-    console.log(productsList.products);
+    const productsBlob = await fetch(`http://localhost:3000/product/`)
+    .then((pBlob)=>{
+        console.log(pBlob)
+        if(!pBlob.ok){
+            console.log("Request not completed!")
+        }
+        return pBlob;
+    })
+    .catch((err)=>{
+        console.log(err)
+        if(err="TypeError: Failed to fetch"){
+            products.innerHTML = '<h2 class="products-not-found">Failed to Fetch Data! Please refresh or try again later.</h2>';
+            document.querySelector(".products-not-found").classList.add("flash");
+        }
+        else{
+            products.innerHTML = '<h2 class="products-not-found">Products not found!</h2>'
+        }
+    });
+    if(productsBlob){
+        const productsList = await productsBlob.json();
+        console.log(productsList.products);
+    }
     displayProducts(productsList.products)
 }
 

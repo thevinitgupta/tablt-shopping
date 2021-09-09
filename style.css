@@ -66,3 +66,30 @@ nav {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1.12rem;
 }
+.products-not-found{
+    font-size : 2rem;
+    font-family: monospace;
+    text-align: center;
+    background-color: #c0320f;
+    color: #fff;
+    width: 100%;
+    animation: flash 1s ease-in-out forwards infinite alternate;
+}
+@keyframes flash{
+    0%{
+        background-color: #c0320f;
+        color: #fff;
+    }
+    25%{
+        color: #c0320f;
+        background-color: #fff;
+    }
+    50%{
+        background-color: #c0320f;
+        color: #fff;
+    }
+    100%{
+        color: #c0320f;
+        background-color: #fff;
+    }
+}
