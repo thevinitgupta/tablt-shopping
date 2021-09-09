@@ -46,3 +46,14 @@
     border: none;
     border-radius: 3%;
 }
+#invalid-email{
+    background-color: #be8a7dce;
+    color : #dd1001;
+    font-size: 1.25rem;
+    font-family:  monospace;
+    display: none;
+    margin: 5px 0;
+    padding: 3px 2px;
+    border: none;
+    border-radius: 2px;
+}
