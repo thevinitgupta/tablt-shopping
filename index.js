@@ -6,13 +6,16 @@ logo.addEventListener("click",()=>{
 })
 
 async function fetchProducts(){
-    const productsBlob = await fetch(`http://localhost:3000/product/`)
-    .then((pBlob)=>{
-        console.log(pBlob)
-        if(!pBlob.ok){
+    await fetch(`http://localhost:3000/product/`)
+    .then((productsBlob)=>{
+        console.log(productsBlob)
+        if(!productsBlob.ok){
             console.log("Request not completed!")
         }
-        return pBlob;
+        return productsBlob.json();
+    })
+    .then((productsList)=>{
+        displayProducts(productsList.products)
     })
     .catch((err)=>{
         console.log(err)
@@ -24,11 +27,7 @@ async function fetchProducts(){
             products.innerHTML = '<h2 class="products-not-found">Products not found!</h2>'
         }
     });
-    if(productsBlob){
-        const productsList = await productsBlob.json();
-        console.log(productsList.products);
-    }
-    displayProducts(productsList.products)
+    
 }
 
 function displayProducts(productsList){
