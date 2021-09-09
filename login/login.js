@@ -24,10 +24,11 @@ async function handleLogin(e){
     })
     .then((userData)=>{
         console.log(userData)
-        window.localStorage.setItem('tablt-shopping',{
-            'token' : userData.token,
+        const user = {
+            'token' : userData.accessToken,
             'email' : userData.email
-        })
+        };
+        window.localStorage.setItem('tablt-shopping',JSON.stringify(user));
         email.value="";
         password.value="";
         window.location = "/";

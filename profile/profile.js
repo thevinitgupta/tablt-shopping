@@ -1,4 +1,18 @@
-window.addEventListener("load",getProfileData("thevinitgupta@gmail.com"));
+let currentUser = {};
+
+(()=>{
+    currentUser = window.localStorage.getItem("tablt-shopping");
+    currentUser = JSON.parse(currentUser);
+    if(!currentUser.email){
+        console.log(JSON.stringify(currentUser))
+        alert("Please Login First");
+        window.location = "/login/login.html";
+    }
+    else {
+        console.log(currentUser);
+        getProfileData(currentUser.email)
+    }
+})();
 
 let userId = "";
 const logo = document.querySelector(".logo");

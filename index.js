@@ -5,6 +5,9 @@ logo.addEventListener("click",()=>{
     window.location.href = "/";
 })
 
+let user = window.localStorage.getItem("tablt-shopping");
+console.log(JSON.parse(user))
+
 async function fetchProducts(){
     await fetch(`http://localhost:3000/product/`)
     .then((productsBlob)=>{
