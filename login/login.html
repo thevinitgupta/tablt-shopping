@@ -11,14 +11,15 @@
     <div class="login">
         <h2 class="login-head">Login</h2>
         <div class="login-body">
-            <form action="/user/login" method="post">
+            <form method="post">
                 <label for="email" class="login-label">Email</label>
-                <input type="email" name="email" class="login-input login-email">
+                <input type="email" name="email" class="login-input login-email" value="">
                 <label for="password" class="login-label">Password</label>
-                <input type="password" name="password" class="login-input login-password">
+                <input type="password" name="password" class="login-input login-password" value="">
                 <button type="submit" id="login-btn">Login &#10162;</button>
             </form>  
         </div>
-    </div>   
+    </div>
+    <script src="./login.js"></script>   
 </body>
 </html>
