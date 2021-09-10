@@ -6,7 +6,10 @@ let ids = [];
         ids.push(obj.id)
     });
     console.log(ids)
-    getCartItems();
+    setTimeout(()=>{
+        getCartItems();
+    },1000)
+    
 })();
 
 async function getCartItems(){
@@ -24,8 +27,14 @@ async function getCartItems(){
     })
     .then((cartItems)=>{
         console.log(cartItems);
+
     })
     .catch((err)=>{
         console.error(err);
     })
+}
+
+
+function displayCart(){
+    
 }
