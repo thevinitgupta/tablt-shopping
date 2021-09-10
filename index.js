@@ -1,9 +1,13 @@
 const logo = document.querySelector(".logo");
 const products = document.querySelector(".products");
+let addItemBtn;
 window.addEventListener("load",fetchProducts);
 logo.addEventListener("click",()=>{
     window.location.href = "/";
 })
+
+let cart = [];
+
 
 let user = window.localStorage.getItem("tablt-shopping");
 console.log(JSON.parse(user))
@@ -39,7 +43,7 @@ function displayProducts(productsList){
         const product = document.createElement("div");
         product.classList = "product";
         product.innerHTML= `<div class="product-head"><div class="product-head-name">${productData.name}</div>
-        <div class="product-add-item">Add To Cart</div>
+        <div class="product-add-item" data-productId="${productData._id}">Add To Cart</div>
         </div>
         <div class="product-info">
             <div class="product-info-cost">&#8377;${productData.cost}</div>
@@ -47,6 +51,18 @@ function displayProducts(productsList){
         </div>`;
         console.log(product)
         products.appendChild(product);
+        addItemBtn = document.querySelectorAll(".product-add-item");
+        addItemBtn.forEach((btn)=>{
+            btn.addEventListener("click",addItemToCart);
+        })
     }
-    
+}
+
+function addItemToCart(e){
+    const id = this.getAttribute("data-productId");
+    console.log(this.getAttribute("data-productId"));
+    cart.push({
+        id,
+    })
+    window.localStorage.setItem("cart",JSON.stringify(cart));
 }
