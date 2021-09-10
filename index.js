@@ -38,7 +38,9 @@ function displayProducts(productsList){
         console.log(productData);
         const product = document.createElement("div");
         product.classList = "product";
-        product.innerHTML= `<span class="product-name">${productData.name}</span>
+        product.innerHTML= `<div class="product-head"><div class="product-head-name">${productData.name}</div>
+        <div class="product-add-item">Add To Cart</div>
+        </div>
         <div class="product-info">
             <div class="product-info-cost">&#8377;${productData.cost}</div>
             <div class="product-info-count">Count :${productData.count}</div>
