@@ -1,6 +1,7 @@
 const cartIds = JSON.parse(window.localStorage.getItem("cart"));
 const container = document.querySelector(".container");
 const loader = document.querySelector(".loader");
+const cartDisplay = document.querySelector(".cart-display");
 let ids = [];
 (()=>{
     
@@ -38,8 +39,6 @@ async function getCartItems(){
 
 
 function displayCartItems(cartItems){
-    let cartDisplay = document.createElement("div");
-    cartDisplay.className = "cart-display";
     console.log(cartItems)
     cartItems.forEach((item,index)=>{
         console.log(item)
@@ -62,7 +61,6 @@ function displayCartItems(cartItems){
         `
         cartDisplay.appendChild(cartItem);
     })
-    container.appendChild(cartDisplay);
     console.log(container)
     loader.style.display = "none";
     container.style.display = "inherit";
