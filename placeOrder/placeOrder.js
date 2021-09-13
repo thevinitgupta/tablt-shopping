@@ -7,6 +7,12 @@ const placeOrderBtn = document.querySelector(".place-order-btn");
 const cartTotal = document.querySelector(".cart-total");
 const checkoutDiv = document.querySelector(".checkout");
 const checkoutBtn = document.querySelector("#checkout-btn");
+const userName = document.querySelector("#name");
+const address = document.querySelector("#address");
+const contact = document.querySelector("#contact");
+const pincode = document.querySelector("#pincode");
+const paymentType = document.querySelector("#paymentType");
+
 
 let orderData = {
     productsList : [],
@@ -111,6 +117,19 @@ function openCheckout() {
 }
 
 function checkoutOrder(){
+    if(!userName.value || !address.value || !contact.value || !pincode.value){
+        alert("Please fill the empty fields!")
+    }
+    else {
+        console.log(paymentType.options[paymentType.options.selectedIndex].value)
+        orderData.deliveryDetails = {
+            name : userName.value,
+            address : address.value,
+            contact : contact.value,
+            pinCode : pincode.value
+        }
+        orderData.paymentType = paymentType.options[paymentType.options.selectedIndex].value;
+    }
     console.log(orderData)
     console.log("Clicked Checkout!")
 }
