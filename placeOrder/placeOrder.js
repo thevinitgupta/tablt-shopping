@@ -17,7 +17,7 @@ const paymentType = document.querySelector("#paymentType");
 let orderData = {
     productsList : [],
     paymentType : "",
-    deliveryDetails : {
+    deliveryLocation : {
         name : "",
         address : "",
         contact : 0,
@@ -122,14 +122,45 @@ function checkoutOrder(){
     }
     else {
         console.log(paymentType.options[paymentType.options.selectedIndex].value)
-        orderData.deliveryDetails = {
+        orderData.deliveryLocation = {
             name : userName.value,
             address : address.value,
             contact : contact.value,
             pinCode : pincode.value
         }
         orderData.paymentType = paymentType.options[paymentType.options.selectedIndex].value;
+        let userData = window.localStorage.getItem('tablt-shopping');
+        console.log(userData)
+        if(!userData){
+            alert("Please login First!")
+            window.location = "/login/login.html"
+        }
+        userData = JSON.parse(userData);
+        
+        console.log(userData);
+        orderData.email = userData.email;
+        placeOrderAndCheckout();
     }
     console.log(orderData)
     console.log("Clicked Checkout!")
+}
+
+async function placeOrderAndCheckout(){
+    await fetch(`http://localhost:3000/order/create/`,{
+        method : 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(orderData)
+    }).then((resp)=>{
+        if(resp.status===200){
+            window.location = "/profile/profile.html"
+        }
+        else {
+            alert("Order not placed! Try Again Later!")
+        }
+    })
+    .catch((err)=>{
+        console.error("resp error -> ",err)
+    })
 }

@@ -3,7 +3,7 @@ let currentUser = {};
 (()=>{
     currentUser = window.localStorage.getItem("tablt-shopping");
     currentUser = JSON.parse(currentUser);
-    if(!currentUser.email){
+    if(!currentUser && !currentUser.email){
         console.log(JSON.stringify(currentUser))
         alert("Please Login First");
         window.location = "/login/login.html";
