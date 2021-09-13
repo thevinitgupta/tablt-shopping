@@ -192,6 +192,13 @@ html{
 .cart-home-link:hover{
   transform: scale(1.12);
 }
+.cart-total{
+  font-size: 1.45rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.cart-total>span{
+  font-weight: 500;
+}
 .checkout {
   width: 100%;
   height: 40vh;

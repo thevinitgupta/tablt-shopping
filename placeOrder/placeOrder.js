@@ -4,8 +4,21 @@ const container = document.querySelector(".container");
 const loader = document.querySelector(".loader");
 const cartDisplay = document.querySelector(".cart-display");
 const placeOrderBtn = document.querySelector(".place-order-btn");
+const cartTotal = document.querySelector(".cart-total");
 const checkoutDiv = document.querySelector(".checkout");
 const checkoutBtn = document.querySelector("#checkout-btn");
+
+let orderData = {
+    productsList : [],
+    paymentType : "",
+    deliveryDetails : {
+        name : "",
+        address : "",
+        contact : 0,
+        pinCode : 0
+    },
+    totalCost : 0
+}
 
 let ids = [];
 (()=>{
@@ -58,6 +71,12 @@ function displayCartItems(cartItems){
     }
     else {
         cartItems.forEach((item,index)=>{
+            orderData.productsList.push({
+                id : item._id,
+                cost : item.cost,
+                quantity : 1
+            })
+            orderData.totalCost +=  item.cost;
             console.log(item)
             let cartItem = document.createElement("div");
             cartItem.classList = "cart-item";
@@ -78,6 +97,7 @@ function displayCartItems(cartItems){
             `
             cartDisplay.appendChild(cartItem);
         })
+        cartTotal.innerHTML = `<span>Total : </span>&#8377;${orderData.totalCost}`
         loader.style.display = "none";
         container.style.display = "inherit";
         placeOrderBtn.addEventListener("click",openCheckout)
@@ -91,5 +111,6 @@ function openCheckout() {
 }
 
 function checkoutOrder(){
+    console.log(orderData)
     console.log("Clicked Checkout!")
 }
