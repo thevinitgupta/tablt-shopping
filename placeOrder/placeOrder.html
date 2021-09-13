@@ -14,6 +14,30 @@
         <div class="place-order-btn">
             Place Order
         </div>
+        <div class="checkout">
+            <form class="checkout-form">
+                <fieldset class="delivery">
+                  <legend>Delivery Details</legend>
+                  <label class="checkout-label">Name</label>
+                  <input type="text" class="checkout-input" placeholder="Vinit Gupta">
+                  <label class="checkout-label">Address Line</label>
+                  <input type="text" class="checkout-input" placeholder="Howrah, Kolkata, West Bengal">
+                  <label class="checkout-label">Contact No.</label>
+                  <input type="tel" class="checkout-input" placeholder="9230192819">
+                  <label class="checkout-label">Pin Code</label>
+                  <input type="number" class="checkout-input" placeholder="710004">
+                </fieldset>
+                <label for="checkout-payment-type" class="checkout-label">Select Payment Type :</label>
+                <select class="checkout-select">
+                    <option value="COD">COD</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Debit-Card">Debit Card</option>
+                    <option value="Credit-Card">Credit Card</option>
+                    <option value="Net-Banking">Net Banking</option>
+                </select>
+                <button type="button" id="checkout-btn">Checkout</button>  
+              </form>
+        </div>
     </div>
     <script src="./placeOrder.js"></script>
 </body>

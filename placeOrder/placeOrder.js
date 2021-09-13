@@ -4,6 +4,9 @@ const container = document.querySelector(".container");
 const loader = document.querySelector(".loader");
 const cartDisplay = document.querySelector(".cart-display");
 const placeOrderBtn = document.querySelector(".place-order-btn");
+const checkoutDiv = document.querySelector(".checkout");
+const checkoutBtn = document.querySelector("#checkout-btn");
+
 let ids = [];
 (()=>{
     if(cartIds){
@@ -77,5 +80,16 @@ function displayCartItems(cartItems){
         })
         loader.style.display = "none";
         container.style.display = "inherit";
+        placeOrderBtn.addEventListener("click",openCheckout)
     }
+}
+
+
+function openCheckout() {
+    checkoutDiv.style.display = "block"
+    checkoutBtn.addEventListener("click",checkoutOrder);
+}
+
+function checkoutOrder(){
+    console.log("Clicked Checkout!")
 }
