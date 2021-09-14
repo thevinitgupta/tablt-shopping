@@ -59,8 +59,36 @@ function displayOrders(ordersList){
         let dateString = new Date(Number(orderItem.date));
         const date = dateString.toString();
         orderElement.classList = "order-item";
-        orderElement.innerHTML = `<div class="order-item-top" data-id="${orderItem.id}">Order ${index+1}</div>
-        <div class="order-item-bottom"><div class="order-item-view-details">View Details</div><div class="order-item-date">${date.substring(4,15)}</div></div>`;
+        orderElement.innerHTML = `<div class="order-item-top" data-id="${orderItem.id}">Order ${index+1} - Delivered to ${orderItem.deliveryLocation.name}</div>
+        <div class="order-item-mid"><div class="order-item-total-cost">Total : &#8377;${orderItem.totalCost}</div><div class="order-item-date">${date.substring(4,15)}</div>
+            <div class="order-item-total">Total items : ${orderItem.productsList.length}</div>
+        </div>`;
+
         profileOrdersList.appendChild(orderElement);
     })
+}
+
+/**
+ * customerId: "6127493cd8c3867eb5ac32a8"
+date: "1630309930449"
+deliveryLocation:
+address: "Palash Bagan, Neamatpur, Asansol, West Bengal"
+contact: "8389073221"
+name: "Vinit Gupta"
+pinCode: 713359
+[[Prototype]]: Object
+paymentType: "COD"
+productsList: Array(4)
+0: {id: '612c7d7ce75911d671dffd74', quantity: 2, cost: 899, _id: '612c8e2ac9a5d0bb026e46bd'}
+1: {id: '612c7dfae75911d671dffd7d', quantity: 1, cost: 1399, _id: '612c8e2ac9a5d0bb026e46be'}
+2: {id: '612c7e29e75911d671dffd80', quantity: 3, cost: 420, _id: '612c8e2ac9a5d0bb026e46bf'}
+3: {id: '612c80ede75911d6
+ */
+function displayOrderDetails(orderObj){
+    console.log(orderObj)
+    const orderDetails = document.createElement("div");
+    orderDetails.classList = "order-detail";
+    orderDetails.innerHTML = `<div class="order-payment-type">Payment Type : ${orderObj.paymentType}</div>`;
+
+
 }
