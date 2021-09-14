@@ -1,5 +1,5 @@
 let currentUser = {};
-
+const profileOrdersList = document.querySelector(".profile-orders-list");
 (()=>{
     currentUser = window.localStorage.getItem("tablt-shopping");
     currentUser = JSON.parse(currentUser);
@@ -36,6 +36,7 @@ async function getProfileData(email){
     }
     const userData = await userBlob.json();
     console.log(userData);
+    currentUser = userData.user
     setUserData(userData.user); 
 }
 
@@ -46,8 +47,21 @@ async function setUserData(user){
 }
 
 async function fetchOrders(){
-    console.log(userId)
     const ordersBlob = await fetch(`http://localhost:3000/order/${userId}`);
     const ordersList = await ordersBlob.json();
-    console.log(ordersList);
+    console.log(ordersList)
+    displayOrders(ordersList.orders)
+
+}
+
+function displayOrders(ordersList){
+    ordersList.forEach((orderItem,index)=>{
+        const orderElement = document.createElement("div");
+        let dateString = new Date(Number(orderItem.date));
+        const date = dateString.toString();
+        orderElement.classList = "order-item";
+        orderElement.innerHTML = `<div class="order-item-top" data-id="${orderItem.id}">Order ${index+1}</div>
+        <div class="order-item-bottom"><div class="order-item-view-details">View Details</div><div class="order-item-date">${date.substring(4,15)}</div></div>`;
+        profileOrdersList.appendChild(orderElement);
+    })
 }
