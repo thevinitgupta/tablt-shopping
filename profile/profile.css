@@ -57,3 +57,39 @@
     text-align: center;
     color: rgb(185, 51, 27);
 }
+.profile-orders-list{
+    width: 100%;
+    margin-top: 25px;
+}
+.order-item{
+    width: 100%;
+    min-height: 15vh;
+    border-bottom: 2px solid #585858a9;
+    margin-bottom: 15px;
+}
+.order-item-top{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #161616;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.order-item-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.order-item-view-details{
+    width: 16%;
+    background-color: #069196;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 7px 0;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+}
+.order-item-view-details:hover{
+    cursor: pointer;
+}

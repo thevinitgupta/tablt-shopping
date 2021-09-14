@@ -10,7 +10,7 @@ const profileOrdersList = document.querySelector(".profile-orders-list");
     }
     else {
         console.log(currentUser);
-        getProfileData(currentUser.email)
+        getProfileData(currentUser.email);
     }
 })();
 
@@ -51,7 +51,6 @@ async function fetchOrders(){
     const ordersList = await ordersBlob.json();
     console.log(ordersList)
     displayOrders(ordersList.orders)
-
 }
 
 function displayOrders(ordersList){
