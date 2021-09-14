@@ -1,5 +1,12 @@
 let currentUser = {};
 const profileOrdersList = document.querySelector(".profile-orders-list");
+const logoutBtn = document.querySelector(".logout-btn");
+
+logoutBtn.addEventListener("click",()=>{
+    window.localStorage.setItem("tablt-shopping","");
+    window.location = "/";
+});
+
 (()=>{
     currentUser = window.localStorage.getItem("tablt-shopping");
     currentUser = JSON.parse(currentUser);

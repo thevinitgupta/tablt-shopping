@@ -16,7 +16,6 @@ loginBtn.addEventListener("click",handleLogin);
 
 async function handleLogin(e){
     e.preventDefault();
-    console.log("button clicked!")
     await fetch(`http://localhost:3000/user/login/`,{
         method : 'POST',
         headers: {
