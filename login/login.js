@@ -5,6 +5,14 @@ const invalidEmail = document.querySelector("#invalid-email");
 
 loginBtn.addEventListener("click",handleLogin);
 
+(()=>{
+    let tablt = window.localStorage.getItem('tablt-shopping');
+    let account = JSON.parse(tablt);
+    if(account){
+        alert("Already Logged In!")
+        window.location = "/";
+    }
+})();
 
 async function handleLogin(e){
     e.preventDefault();
